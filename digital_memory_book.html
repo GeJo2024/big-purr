@@ -16,8 +16,8 @@
         }
 
         body {
-            background: url('G.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: #ffc0cb url('G.jpg') no-repeat center center fixed;
+            background-size: contain; /* Image stays contained, pink color fills rest */
             background-position: center;
             background-attachment: fixed;
             display: flex;
@@ -32,10 +32,10 @@
             box-sizing: border-box;
         }
 
-        /* Responsive background for smaller screens */
+        /* Mobile Optimization */
         @media (max-width: 768px) {
             body {
-                background-size: 100% auto;
+                background-size: cover; /* Prevents distortion on smaller screens */
                 background-attachment: scroll;
             }
         }
@@ -45,16 +45,20 @@
             font-weight: 600;
             letter-spacing: 1px;
             margin-top: 20px;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
         
         section {
             margin: 30px 0;
             padding: 20px;
-            background: rgba(24, 138, 204, 0.747);
+            background: rgba(24, 138, 204, 0.8);
             border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.267);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
             max-width: 90%;
             font-size: x-large;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
         
         button {
@@ -83,7 +87,7 @@
             width: 90%;
             max-width: 600px;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.267);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
