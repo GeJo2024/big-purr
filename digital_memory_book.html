@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Memory Book</title>
+    
+    <!-- Import Josefin Sans from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        * {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            background: url('G.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            text-align: center;
+            overflow: auto;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Responsive background for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                background-size: 100% auto;
+                background-attachment: scroll;
+            }
+        }
+
+        header {
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(24, 138, 204, 0.747);
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.267);
+            max-width: 90%;
+            font-size: x-large;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        button:hover {
+            background-color: #ff4757;
+        }
+
+        /* Hidden video section */
+        #video-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.267);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Happy Birthday, Goldfish 🎉</h1>
+    </header>
+    
+    <section id="welcome">
+        <p>Dear Goldfish, this digital book is filled with the best wishes from me to you. Thank you for being an amazing & stubborn friend💖</p>
+    </section>
+    
+    <section id="audio-message">
+        <h2>🎙️ Special Audio Message</h2>
+        <p>Click below to hear a heartfelt message just for you!</p>
+        <audio controls>
+            <source src="birthday_audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+    
+    <section id="surprise">
+        <h2>🎁 Surprise Section</h2>
+        <p>Click below for a special surprise!</p>
+        <button id="reveal-btn" onclick="toggleSurprise()">Reveal</button>
+        <div id="hidden-message" style="display: none;">
+            <p>You're the most amazing best friend💖</p>
+        </div>
+
+        <!-- Hidden video container -->
+        <div id="video-container">
+            <video id="surprise-video" controls>
+                <source src="G.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+    
+    <script>
+        function toggleSurprise() {
+            const message = document.getElementById('hidden-message');
+            const videoContainer = document.getElementById('video-container');
+            const video = document.getElementById('surprise-video');
+            const button = document.getElementById('reveal-btn');
+
+            if (message.style.display === 'none') {
+                message.style.display = 'block';
+                videoContainer.style.display = 'block';
+                video.play();
+                button.textContent = 'Hide';
+            } else {
+                message.style.display = 'none';
+                videoContainer.style.display = 'none';
+                video.pause();
+                video.currentTime = 0;
+                button.textContent = 'Reveal';
+            }
+        }
+    </script>
+</body>
+</html>
