@@ -102,13 +102,11 @@
     
     <section id="special-message">
         <h2>💌 Special Message</h2>
-        <p>I don’t believe in fate or destiny,
-          but I do believe that there are forces in this world that bring certain people together.
-          And I know, without a doubt, that whatever those forces may be, they led me to you.
-          You have been the most unexpected yet most beautiful gift in my life—stubborn, hilarious, and irreplaceable.
-          Thank you for being my best friend, my Goldfish. 
-          On your special day, I just want you to know how much you are loved, appreciated, and cherished.
-          Happy Birthday My Love💖🎉💖</p>
+        <button id="reveal-message-btn" onclick="toggleMessage()">Reveal</button>
+        <div id="hidden-message" style="display: none; margin-top: 10px;">
+            <p>I don’t believe in fate or destiny, but I do believe that there are forces in this world that bring certain people together. And I know, without a doubt, that whatever those forces may be, they led me to you. You have been the most unexpected yet most beautiful gift in my life—stubborn, hilarious, and irreplaceable. Thank you for being my best friend, my Goldfish. On your special day, I just want you to know how much you are loved, appreciated, and cherished. Happy Birthday My Love 💖🎉</p>
+            <p><b>P.S: I know you are probably going to say/think "Wahalurrr"</b></p>
+        </div>
     </section>
     
     <section id="surprise">
@@ -129,6 +127,19 @@
     </section>
     
     <script>
+        function toggleMessage() {
+            const messageContainer = document.getElementById('hidden-message');
+            const button = document.getElementById('reveal-message-btn');
+
+            if (messageContainer.style.display === 'none' || messageContainer.style.display === '') {
+                messageContainer.style.display = 'block';
+                button.textContent = 'Hide';
+            } else {
+                messageContainer.style.display = 'none';
+                button.textContent = 'Reveal';
+            }
+        }
+
         function toggleSurprise() {
             const message = document.getElementById('hidden-message');
             const videoContainer = document.getElementById('video-container');
